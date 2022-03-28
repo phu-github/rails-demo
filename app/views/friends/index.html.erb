@@ -1,0 +1,38 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Friends</h1>
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Tiwtter</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @friends.each do |friend| %>
+      <tr>
+        <th scope="row"> <%= friend.id %> </th>
+        <td> <%= friend.first_name %> </td>
+        <td> <%= friend.last_name %> </td>
+        <td> <%= friend.email %> </td>
+        <td> <%= friend.phone %> </td>
+        <td> <%= friend.tiwtter %> </td>
+        <td><%= link_to "Show", friend %></td>
+        <td><%= link_to "Edit", edit_friend_path(friend) %></td>
+        <td><%= button_to "Delete", friend, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Add new friend", new_friend_path  %>
+<%= button_to "Add new friend", new_friend_path, class:"primary"%>
